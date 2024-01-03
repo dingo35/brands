@@ -130,6 +130,12 @@ CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 p
 
 
 ```
+# Webserver
+After configuration of your Wifi parameters, your SmartEVSE will present itself on your LAN via a webserver. This webserver can be accessed through:
+* http://ip-address/
+* http://smartevse-xxxx.local/ where xxxx is the serial number of your SmartEVSE. It can be found on a sticker on the bottom of your SmartEVSE. It might be necessary that mDNS is configured on your LAN.
+* http://smartevse-yyyy.lan/ where yyyy is a derivative of the MAC addresss, that was shown to you when you configured your Wifi parameters.
+
 # Multiple SmartEVSE controllers on one mains supply
 Up to eight SmartEVSE modules can share one mains supply.
   - Hardware connections
@@ -158,12 +164,6 @@ If an error occurs, the SmartEVSE will stop charging, and display one of the fol
 Once the temperature has dropped below 55ºC charging is started again.
 * RESIDUAL FAULT CURRENT DETECTED<br>An optional DC Residual Current Monitor has detected a fault current, the Contactor is switched off.
 The error condition can be reset by pressing any button on the SmartEVSE.
-
-# Webserver
-After configuration of your Wifi parameters, your SmartEVSE will present itself on your LAN via a webserver. This webserver can be accessed through:
-* http://ip-address/
-* http://smartevse-xxxx.local/ where xxxx is the serial number of your SmartEVSE. It can be found on a sticker on the bottom of your SmartEVSE. It might be necessary that mDNS is configured on your LAN.
-* http://smartevse-yyyy.lan/ where yyyy is a derivative of the MAC addresss, that was shown to you when you configured your Wifi parameters.
 
 
 
