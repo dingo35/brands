@@ -20,7 +20,8 @@ MODE    (only appears when a MAINSMET is configured):
 CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
   <Socket>      Your SmartEVSE is connected to a socket, so it will need to sense the 
                 cable used for its maximum capacity
-  <Fixed>       Your SmartEVSE is connected to a fixed cable, so MAX will determine your maximum charge current
+  <Fixed>       Your SmartEVSE is connected to a fixed cable, so MAX will determine your
+                maximum charge current
 
 LOCK    (only appears when CONFIG is set to <Socket>)
         Enable or disable the locking actuator (config = socket)
@@ -28,8 +29,8 @@ LOCK    (only appears when CONFIG is set to <Socket>)
   <Solenoid>	Dostar, DUOSIDA DSIEC-ELB or Ratio lock
   <Motor>	Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
 
-MULTI   (only appears when a MAINSMET is configured):
-        2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
+MULTI   (only appears when a MAINSMET is configured); formerly known as LOADBALANCING.
+        2 to 8 EVSE’s can be connected via modbus, and their load will be balanced
   <Disabled>	Single SmartEVSE
   <Master>	Set the first SmartEVSE to Master,
   <Node1-7>	And the other SmartEVSE's to Node 1-7.
