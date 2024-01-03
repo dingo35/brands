@@ -7,7 +7,10 @@ Feel free to use this repository to build it yourself or to use the latest on fr
 <br />
 <br />
 
-[a relative link](docs/configuration.md)
+[Installation](docs/installation.md)
+[Configuration](docs/configuration.md)
+[Operation](docs/operation.md)
+
 
 
 # CONFIGURATION: All menu options on the LCD screen:
