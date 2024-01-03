@@ -68,11 +68,12 @@ RFID    use a RFID card reader to enable/disable access to the EVSE
 MAINSMET Set type of MAINS meter
   <Disabled>    No MAINS meter connected; only Normal mode possible, no MULTIple SmartEVSE's possible
   <Sensorbox>   the Sensorbox will send measurement data to the SmartEVSE
+  <API>         The MAINS meter data will be fed through the REST API or the MQTT API.
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
   Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase 
   meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
-  If MAINSMET is not <Disabled>, these settings appear:
+  If MAINSMET is not <Disabled> and not <API>, these settings appear:
   MAINSADR  Set the Modbus address for the kWh meter
   GRID      (only appears when Sensorbox with CT’s is used)
             3 or 4 wire
@@ -80,13 +81,14 @@ MAINSMET Set type of MAINS meter
 	    6.0-99.9A	A minimum of 6A is required in order to change this value.
             Hold both ▼and ▲ buttons to reset to default settings. 
 
-EV METER      Set type of EV kWh meter (measures power and charged energy)
+EV METER Set type of EV kWh meter (measures power and charged energy)
   <Disabled>  No EV meter connected.
+  <API>         The EV meter data will be fed through the REST API or the MQTT API.
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
   Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase
   meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
-  If EV METER is not <Disabled>, this setting appears:
+  If EV METER is not <Disabled> and not <API>, this setting appears:
   EV ADR   Set the Modbus address for the EV Meter
 
 WIFI          Enable wifi connection to your LAN
@@ -128,11 +130,10 @@ CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 p
 
 
 ```
-DINGO
-Load Balancing
+# Multiple SmartEVSE controllers on one mains supply
 Up to eight SmartEVSE modules can share one mains supply. 
-Software configuration
-Set one modules LOAD BAL setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
+##Software configuration
+Set one SmartEVSE MULTI setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
 On the Master configure the following: 
 MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
 	It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal. 
@@ -144,7 +145,7 @@ MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE
 MIN		 Set to the lowest allowable charging current for all connected EV’s. 
 On the Node’s configure the following: 
 MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
-Hardware connections
+##Hardware connections
 Connect the A, B and GND connections from the Master to the Node(s).
 So A connects to A, B goes to B etc. 
 If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE. ! Make sure that the +12V  wire from the sensorbox is connected to 
