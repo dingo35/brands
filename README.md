@@ -32,7 +32,7 @@ LOCK    (only appears when CONFIG is set to <Socket>)
 MULTI   (only appears when a MAINSMET is configured); formerly known as LOADBALANCING.
         2 to 8 EVSE’s can be connected via modbus, and their load will be balanced
   <Disabled>	Single SmartEVSE
-  <Master>	Set the first SmartEVSE to Master,
+  <Master>	Set the first SmartEVSE to Master. Make sure there is only one Master.
   <Node1-7>	And the other SmartEVSE's to Node 1-7.
 
 MAINS	(only appears when a MAINSMET is configured):
@@ -72,8 +72,13 @@ MAINSMET Set type of MAINS meter
 
   Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase 
   meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
-  If MAINSMET is not <Disabled>, this setting appears:
+  If MAINSMET is not <Disabled>, these settings appear:
   MAINSADR  Set the Modbus address for the kWh meter
+  GRID      (only appears when Sensorbox with CT’s is used)
+            3 or 4 wire
+  CAL	    Calibrate CT1. CT2 and CT3 will use the same cal value. 
+	    6.0-99.9A	A minimum of 6A is required in order to change this value.
+            Hold both ▼and ▲ buttons to reset to default settings. 
 
 EV METER      Set type of EV kWh meter (measures power and charged energy)
   <Disabled>  No EV meter connected.
@@ -120,7 +125,30 @@ CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 p
   <Always On>   C2 is always on, so you are three phase charging (if your Mains are three phase and your EV supports it)
   <Solar Off>   C2 is always on except in Solar Mode where it is always off
   <Auto>        (not implemented yet, current behaviour is Always On)
+
+
 ```
+DINGO
+Load Balancing
+Up to eight SmartEVSE modules can share one mains supply. 
+Software configuration
+Set one modules LOAD BAL setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
+On the Master configure the following: 
+MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
+	It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal. 
+MAINS Set to the maximum current of the MAINS connection (per phase).
+If the sensorbox measures a higher current then this value on one of the phases, it will immediately reduce the current to the EVSE’s 
+CIRCUIT Set this to the maximum current of the EVSE circuit (per phase).
+This will be split between the connected and charging EV’s. 
+MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
+MIN		 Set to the lowest allowable charging current for all connected EV’s. 
+On the Node’s configure the following: 
+MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
+Hardware connections
+Connect the A, B and GND connections from the Master to the Node(s).
+So A connects to A, B goes to B etc. 
+If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE. ! Make sure that the +12V  wire from the sensorbox is connected to 
+only  -one– SmartEVSE. 
 
 
 # Changes in regards with the original firmware
