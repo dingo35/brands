@@ -17,28 +17,28 @@ MODE    (only appears when a MAINSMET is configured):
   <Smart>	The EV will charge with a dynamic charge current, depending on MAINSMET
                 data, and MAINS, MAX, MIN settings.
   <Solar>       The EV will charge on solar power.
-```
-* CONFIG        Configure EVSE with Type 2 Socket or fixed cable:
-```
+
+CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
+
   <Socket>
   <Fixed>
-```
-* LOCK	        (only appears when CONFIG is set to <Socket>)
-                Enable or disable the locking actuator (config = socket)
-```
+
+LOCK    (only appears when CONFIG is set to <Socket>)
+        Enable or disable the locking actuator (config = socket)
+
   <Disabled>			No lock is used```
   <Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock```
   <Motor>			     Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
-```
-* MULTI         (only appears when a MAINSMET is configured):
-                2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
-```
+
+MULTI   (only appears when a MAINSMET is configured):
+        2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
+
   <Disabled>	Single SmartEVSE
   <Master>	Set the first SmartEVSE to Master,
   <Node1-7>	And the other SmartEVSE's to Node 1-7.
-```
-* MAINS	        (only appears when a MAINSMET is configured):
-		Set Max Mains current: 10-200A (per phase)
+
+MAINS	(only appears when a MAINSMET is configured):
+    	Set Max Mains current: 10-200A (per phase)
 * MIN	        (only appears when a MAINSMET is configured):
 		Set MIN charge current for the EV: 6-16A (per phase)
 * MAX		Set MAX charge current for the EV: 10-80A (per phase)
