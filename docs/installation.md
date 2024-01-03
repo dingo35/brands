@@ -1,4 +1,4 @@
-#Hardware installation
+# Hardware installation
 
 We refer to [this wiring diagram](SmartEVSEv3_build.pdf) for wiring the SmartEVSE.
 
@@ -30,7 +30,7 @@ If you have other current-users on a Subpanel, use this wiring and the added con
    Note that for this functionality you will need to be in Smart or Solar mode; it is no longer necessary to enable Load Balancing for this function.
 
 # Second Contactor C2
-One can add a second contactor (C2) that switches off 2 of the 3 phases of a three-phase Mains installation; this can be usefull if one wants to charge of off
+One can add a second contactor (C2) that switches off 2 of the 3 phases of a three-phase Mains installation; this can be useful if one wants to charge of off
       Solar; EV's have a minimal charge current of 6A, so switching off 2 phases allows you to charge with a current of 6-18A, while 3 phases have a minimum current
       of 3x6A=18A. This way you can still charge solar-only on smaller solar installations.
     - one should wire C2 according to this schema:
@@ -55,7 +55,7 @@ One can add a second contactor (C2) that switches off 2 of the 3 phases of a thr
       Note also that in case the phases cannot be detected automatically (especially when no EVmeter is connected), and SmartEVSE _knows_ it is charging at a single
       phase (e.g. because Contact2 is at "Always Off"), it assumes that L1 is the phase we are charging on!!
 
-    - by default C2 is switched OFF ("Not present"); if you want to keep on charging on 3 phases after installing C2, you should change the setting Contact2 in the
+      By default C2 is switched OFF ("Not present"); if you want to keep on charging on 3 phases after installing C2, you should change the setting Contact2 in the
       Setup Menu.
 
 # Multiple SmartEVSE controllers on one mains supply

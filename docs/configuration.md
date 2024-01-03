@@ -108,7 +108,7 @@ STOP          Stop charging when there is not enough solar power available:
               Disabled - 60 minutes (Disabled = never stop charging)
 IMPORT        Allow additional grid power when solar charging: 0-20A (summed over all phases)
 CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 phases of a
-              3 phase Mains installation; this can be usefull if one wants to charge of off
+              3 phase Mains installation; this can be useful if one wants to charge of off
               Solar; EV's have a minimal charge current of 6A, so switching off 2 phases
               allows you to charge with a current of 6-18A, while 3 phases have a
               minimum current of 3x6A=18A.
