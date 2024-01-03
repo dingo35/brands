@@ -140,16 +140,16 @@ Up to eight SmartEVSE modules can share one mains supply.
   - Software configuration
     - Set one SmartEVSE MULTI setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
     - On the Master configure the following: 
-        - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
+      - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
       It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal. 
-        - MAINS Set to the maximum current of the MAINS connection (per phase).
+      - MAINS Set to the maximum current of the MAINS connection (per phase).
       If the sensorbox or other MainsMeter device measures a higher current then this value on one of the phases, it will immediately reduce the current to the EVSE’s 
-    - CIRCUIT Set this to the maximum current of the EVSE circuit (per phase).
+      - CIRCUIT Set this to the maximum current of the EVSE circuit (per phase).
       This will be split between the connected and charging EV’s. 
-    - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
-    - MIN		 Set to the lowest allowable charging current for all connected EV’s. 
+      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
+      - MIN		 Set to the lowest allowable charging current for all connected EV’s. 
     - On the Node’s configure the following: 
-      MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
+      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
 # Error Messages
 If an error occurs, the SmartEVSE will stop charging, and display one of the following messages: 
 ERROR NO  SERIAL COM	  CHECK WIRING No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 10 seconds. Please check the wiring to the Sensorbox or other SmartEVSE. 
