@@ -10,18 +10,23 @@ Feel free to use this repository to build it yourself or to use the latest on fr
 # All menu options on the LCD screen:
 * MODE	        (only appears when a MAINSMET is configured):
                 Per default you are in Normal EVSE mode, but if a MAINSMET is configured you can also choose Smart Mode or Solar Mode:
-  - \<Normal\>	The EV will charge with the current set at MAX
-  - \<Smart\>	The EV will charge with a dynamic charge current, depending on MAINSMET data, and MAINS, MAX, MIN settings.
-  - \<Solar\>     The EV will charge on solar power.
+```
+  <Normal>	The EV will charge with the current set at MAX
+  <Smart>	The EV will charge with a dynamic charge current, depending on MAINSMET data, and MAINS, MAX, MIN settings.
+  <Solar>       The EV will charge on solar power.
+```
 * CONFIG        Configure EVSE with Type 2 Socket or fixed cable:
-  - <Socket>
-  - <Fixed>
+```
+  <Socket>
+  <Fixed>
+```
 * LOCK	        (only appears when CONFIG is set to <Socket>)
                 Enable or disable the locking actuator (config = socket)
-
-  - ```<Disabled>			No lock is used```
-  - ```<Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock```
-  - ```<Motor>			     Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact```
+```
+  <Disabled>			No lock is used```
+  <Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock```
+  <Motor>			     Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
+```
 * MULTI         (only appears when a MAINSMET is configured):
                 2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
 ```
