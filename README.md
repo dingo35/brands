@@ -135,14 +135,14 @@ Up to eight SmartEVSE modules can share one mains supply.
   - Hardware connections
     - Connect the A, B and GND connections from the Master to the Node(s).
     - So A connects to A, B goes to B etc. 
-    - If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE. ! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE. 
+    - If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE. 
 
   - Software configuration
     - Set one SmartEVSE MULTI setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
     - On the Master configure the following: 
-    - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
+        - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
       It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal. 
-    - MAINS Set to the maximum current of the MAINS connection (per phase).
+        - MAINS Set to the maximum current of the MAINS connection (per phase).
       If the sensorbox or other MainsMeter device measures a higher current then this value on one of the phases, it will immediately reduce the current to the EVSE’s 
     - CIRCUIT Set this to the maximum current of the EVSE circuit (per phase).
       This will be split between the connected and charging EV’s. 
