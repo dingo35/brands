@@ -18,8 +18,9 @@ MODE    (only appears when a MAINSMET is configured):
   <Solar>       The EV will charge on solar power
 
 CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
-  <Socket>
-  <Fixed>
+  <Socket>      Your SmartEVSE is connected to a socket, so it will need to sense the 
+                cable used for its maximum capacity
+  <Fixed>       Your SmartEVSE is connected to a fixed cable, so MAX will determine your maximum charge current
 
 LOCK    (only appears when CONFIG is set to <Socket>)
         Enable or disable the locking actuator (config = socket)
@@ -40,8 +41,11 @@ MIN     (only appears when a MAINSMET is configured):
         Set MIN charge current for the EV: 6-16A (per phase)
 
 MAX	Set MAX charge current for the EV: 10-80A (per phase)
+        If CONFIG is set to <Fixed>, configure MAX lower or equal to the maximum current
+        that your fixed cable can carry.
 
-CIRCUIT	(only appears when MULTI set to <Master>, or when MULTI set to <Disabled> and Mode is Smart or Solar):
+CIRCUIT	(only appears when MULTI set to <Master>, or when MULTI set to <Disabled>
+        and Mode is Smart or Solar):
         Set the max current the EVSE circuit can handle (load balancing): 10-200A
         (see also subpanel wiring)
 
@@ -52,20 +56,21 @@ SWITCH  Set the function of an external switch connected to pin SW
   <Sma-Sol B>   A momentary push Button is used to switch between Smart and Solar modes
   <Sma-Sol S>   A toggle switch is used to switch between Smart and Solar modes
 
-RCMON         RCM14-03 Residual Current Monitor is plugged into connector P1
+RCMON   RCM14-03 Residual Current Monitor is plugged into connector P1
   <Disabled>    The RCD option is not used
   <Enabled>     When a fault current is detected, the contactor will be opened
 
-RFID          use a RFID card reader to enable/disable access to the EVSE
-                A maximum of 20 RFID cards can be stored.
+RFID    use a RFID card reader to enable/disable access to the EVSE
+        A maximum of 20 RFID cards can be stored.
                 <Disabled> / <Enabled> / <Learn> / <Delete> / <Delete All>
 
-MAINSMET      Set type of MAINS meter
+MAINSMET Set type of MAINS meter
   <Disabled>    No MAINS meter connected; only Normal mode possible, no MULTIple SmartEVSE's possible
   <Sensorbox>   the Sensorbox will send measurement data to the SmartEVSE
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
-  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three
+  phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
   If MAINSMET is not <Disabled>, this setting appears:
     * MAINSADR  Set the Modbus address for the kWh meter
 
@@ -73,13 +78,16 @@ EV METER      Set type of EV kWh meter (measures power and charged energy)
   <Disabled>  No EV meter connected.
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
-  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase
+  meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
   If EV METER is not <Disabled>, this setting appears:
     * EV ADR   Set the Modbus address for the EV Meter
 
 WIFI          Enable wifi connection to your LAN
   <Disabled>  No wifi connection
-  <SetupWifi> The SmartEVSE presents itself as a Wifi Acces Point "smartevse-xxxx"; connect with your phone to that access point, goto http://192.168.4.1/ and configure your Wifi password
+  <SetupWifi> The SmartEVSE presents itself as a Wifi Acces Point "smartevse-xxxx";
+              connect with your phone to that access point, goto http://192.168.4.1/ 
+              and configure your Wifi password
   <Enabled>   Connect to your LAN via Wifi.
 
 MAX TEMP      Maximum allowed temperature for your SmartEVSE; 40-75C, default 65. You can increase this if your SmartEVSE is in direct sunlight.
