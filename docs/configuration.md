@@ -7,7 +7,9 @@ Feel free to use this repository to build it yourself or to use the latest on fr
 <br />
 <br />
 
-[a relative link](docs/configuration.md)
+<li class="masthead__menu-item">
+          <a href="https://xxx.github.io/configuration.html/">Configuration</a>
+        </li>
 
 
 # CONFIGURATION: All menu options on the LCD screen:
