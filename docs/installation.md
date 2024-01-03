@@ -61,7 +61,7 @@ One can add a second contactor (C2) that switches off 2 of the 3 phases of a thr
 # Multiple SmartEVSE controllers on one mains supply
 Up to eight SmartEVSE modules can share one mains supply.
 Hardware connections
-    - Connect the A, B and GND connections from the Master to the Node(s).
-    - So A connects to A, B goes to B etc.
-    - If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE.
+* Connect the A, B and GND connections from the Master to the Node(s).
+* So A connects to A, B goes to B etc.
+* If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE.
 
