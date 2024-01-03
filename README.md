@@ -70,10 +70,10 @@ MAINSMET Set type of MAINS meter
   <Sensorbox>   the Sensorbox will send measurement data to the SmartEVSE
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
-  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three
-  phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase 
+  meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
   If MAINSMET is not <Disabled>, this setting appears:
-    * MAINSADR  Set the Modbus address for the kWh meter
+  MAINSADR  Set the Modbus address for the kWh meter
 
 EV METER      Set type of EV kWh meter (measures power and charged energy)
   <Disabled>  No EV meter connected.
@@ -82,7 +82,7 @@ EV METER      Set type of EV kWh meter (measures power and charged energy)
   Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase
   meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
   If EV METER is not <Disabled>, this setting appears:
-    * EV ADR   Set the Modbus address for the EV Meter
+  EV ADR   Set the Modbus address for the EV Meter
 
 WIFI          Enable wifi connection to your LAN
   <Disabled>  No wifi connection
