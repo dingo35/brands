@@ -1,6 +1,6 @@
 #Hardware installation
 
-We refer to [this wiring diagram](docs/SmartEVSEv3_build.pdf) for wiring the SmartEVSE.
+We refer to [this wiring diagram](SmartEVSEv3_build.pdf) for wiring the SmartEVSE.
 
 
 # Inverted wiring of kWh meter
