@@ -152,7 +152,7 @@ Up to eight SmartEVSE modules can share one mains supply.
       - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
 # Error Messages
 If an error occurs, the SmartEVSE will stop charging, and display one of the following messages: 
-* ERROR NO SERIAL COM	  CHECK WIRING
+* ERROR NO SERIAL COM	  CHECK WIRING<br>
 No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 10 seconds. Please check the wiring to the Sensorbox or other SmartEVSE. 
 * ERROR NO CURRENT  There is not enough current available to start charging, or charging was interrupted because there was not enough current available to keep charging. The SmartEVSE will try again in 60 seconds. 
 * ERROR	HIGH TEMP  	The temperature inside the module has reached 65º Celsius. Charging is stopped.		
