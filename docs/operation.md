@@ -8,6 +8,16 @@ After configuration of your Wifi parameters, your SmartEVSE will present itself 
 * http://ip-address/
 * http://smartevse-xxxx.local/ where xxxx is the serial number of your SmartEVSE. It can be found on a sticker on the bottom of your SmartEVSE. It might be necessary that mDNS is configured on your LAN.
 * http://smartevse-yyyy.lan/ where yyyy is a derivative of the MAC addresss, that was shown to you when you configured your Wifi parameters.
+* OTA update of your firmware:
+    - surf to http://your-smartevse/update
+    - select the firmware.bin from this archive, OR if you want the debug version (via telnet over your wifi),
+ rename firmware.debug.bin to firmware.bin and select that. YOU CANNOT FLASH A FILE WITH ANOTHER NAME!
+    - if you get FAIL, check your wifi connection and try again;
+    - after OK, select spiffs.bin from this archive;
+    - if you get FAIL, check your wifi connection and try again;
+    - after OK, wait 10-30 seconds and your new firmware including the webserver should be online!
+* Added wifi-debugging: if you flashed the debug version, telnet http://your-smartevse/ will bring you to a debugger that shows you whats going on!
+
 
 # REST API
 //TODO    
