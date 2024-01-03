@@ -8,9 +8,9 @@ Feel free to use this repository to build it yourself or to use the latest on fr
 <br />
 
 # All menu options on the LCD screen:
+```
 * MODE	        (only appears when a MAINSMET is configured):
                 Per default you are in Normal EVSE mode, but if a MAINSMET is configured you can also choose Smart Mode or Solar Mode:
-```
   <Normal>	The EV will charge with the current set at MAX
   <Smart>	The EV will charge with a dynamic charge current, depending on MAINSMET data, and MAINS, MAX, MIN settings.
   <Solar>       The EV will charge on solar power.
