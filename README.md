@@ -148,15 +148,15 @@ Up to eight SmartEVSE modules can share one mains supply.
       This will be split between the connected and charging EV’s. 
       - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
       - MIN		 Set to the lowest allowable charging current for all connected EV’s. 
-    - On the Node’s configure the following: 
+    - On the Nodes configure the following: 
       - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
 # Error Messages
 If an error occurs, the SmartEVSE will stop charging, and display one of the following messages: 
-ERROR NO  SERIAL COM	  CHECK WIRING No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 10 seconds. Please check the wiring to the Sensorbox or other SmartEVSE. 
-ERROR NO		 CURRENT  There is not enough current available to start charging, or charging was interrupted because there was not enough current available to keep charging. The SmartEVSE will try again in 60 seconds. 
-ERROR	 HIGH TEMP  	The temperature inside the module has reached 65º Celsius. Charging is stopped.		
+* ERROR NO SERIAL COM	  CHECK WIRING No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 10 seconds. Please check the wiring to the Sensorbox or other SmartEVSE. 
+* ERROR NO CURRENT  There is not enough current available to start charging, or charging was interrupted because there was not enough current available to keep charging. The SmartEVSE will try again in 60 seconds. 
+* ERROR	HIGH TEMP  	The temperature inside the module has reached 65º Celsius. Charging is stopped.		
 Once the temperature has dropped below 55ºC charging is started again. 
-RESIDUAL FAULT CURRENT DETECTED  An optional DC Residual Current Monitor has detected a fault current, the Contactor is switched off.
+* RESIDUAL FAULT CURRENT DETECTED  An optional DC Residual Current Monitor has detected a fault current, the Contactor is switched off.
 The error condition can be reset by pressing any button on the SmartEVSE.
  
 
