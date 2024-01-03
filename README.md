@@ -18,9 +18,10 @@ Feel free to use this repository to build it yourself or to use the latest on fr
   - <Fixed>
 * LOCK	        (only appears when CONFIG is set to <Socket>)
                 Enable or disable the locking actuator (config = socket)
-  - <Disabled>			No lock is used
-  - <Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock
-  - <Motor>			Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
+
+  - ```<Disabled>			No lock is used```
+  - ```<Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock```
+  - ```<Motor>			        Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact```
 * MULTI         (only appears when a MAINSMET is configured):
                 2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
   - <Disabled>	Single SmartEVSE
