@@ -18,7 +18,7 @@ MODE    (only appears when a MAINSMET is configured):
   <Solar>       The EV will charge on solar power
 
 CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
-  <Socket>      Your SmartEVSE is connected to a socket, so it will need to sense the 
+  <Socket>      Your SmartEVSE is connected to a socket, so it will need to sense the
                 cable used for its maximum capacity
   <Fixed>       Your SmartEVSE is connected to a fixed cable, so MAX will determine your
                 maximum charge current
@@ -36,7 +36,7 @@ MULTI   (only appears when a MAINSMET is configured); formerly known as LOADBALA
   <Node1-7>	And the other SmartEVSE's to Node 1-7.
 
 MAINS	(only appears when a MAINSMET is configured):
-    	Set Max Mains current: 10-200A (per phase)
+        Set Max Mains current: 10-200A (per phase)
 
 MIN     (only appears when a MAINSMET is configured):
         Set MIN charge current for the EV: 6-16A (per phase)
@@ -71,15 +71,15 @@ MAINSMET Set type of MAINS meter
   <API>         The MAINS meter data will be fed through the REST API or the MQTT API.
   <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
 
-  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase 
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase
   meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
   If MAINSMET is not <Disabled> and not <API>, these settings appear:
   MAINSADR  Set the Modbus address for the kWh meter
   GRID      (only appears when Sensorbox with CT’s is used)
             3 or 4 wire
-  CAL	    Calibrate CT1. CT2 and CT3 will use the same cal value. 
+  CAL	    Calibrate CT1. CT2 and CT3 will use the same cal value.
 	    6.0-99.9A	A minimum of 6A is required in order to change this value.
-            Hold both ▼and ▲ buttons to reset to default settings. 
+            Hold both ▼and ▲ buttons to reset to default settings.
 
 EV METER Set type of EV kWh meter (measures power and charged energy)
   <Disabled>  No EV meter connected.
@@ -94,7 +94,7 @@ EV METER Set type of EV kWh meter (measures power and charged energy)
 WIFI          Enable wifi connection to your LAN
   <Disabled>  No wifi connection
   <SetupWifi> The SmartEVSE presents itself as a Wifi Acces Point "smartevse-xxxx";
-              connect with your phone to that access point, goto http://192.168.4.1/ 
+              connect with your phone to that access point, goto http://192.168.4.1/
               and configure your Wifi password
   <Enabled>   Connect to your LAN via Wifi.
 
@@ -106,12 +106,12 @@ SUMMAINS      Maximum allowed current summed over all phases: 10-600A
 
 MODEM         If a modem that can communicate with your EV is connected
   <Disabled>          No modem connected
-  <Experimental>      Only for expert use, 
+  <Experimental>      Only for expert use,
                       if you have a modem connected AND compile the firmware with MODEM=1.
 
 The following options are only shown when Mode set to <Solar> and
 Multi set to <Disabled> or <Master>:
-START         set the current on which the EV should start Solar charging: 
+START         set the current on which the EV should start Solar charging:
               -0  -48A (sum of all phases)
 STOP          Stop charging when there is not enough solar power available:
               Disabled - 60 minutes (Disabled = never stop charging)
@@ -131,34 +131,41 @@ CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 p
 
 ```
 # Multiple SmartEVSE controllers on one mains supply
-Up to eight SmartEVSE modules can share one mains supply. 
+Up to eight SmartEVSE modules can share one mains supply.
   - Hardware connections
     - Connect the A, B and GND connections from the Master to the Node(s).
-    - So A connects to A, B goes to B etc. 
-    - If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE. 
+    - So A connects to A, B goes to B etc.
+    - If you are using Smart/Solar mode, you should connect the A, B , +12V and GND wires from the sensorbox to the same screw terminals of the SmartEVSE! Make sure that the +12V  wire from the sensorbox is connected to only  -one– SmartEVSE.
 
   - Software configuration
-    - Set one SmartEVSE MULTI setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique. 
-    - On the Master configure the following: 
-      - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply. 
-      It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal. 
+    - Set one SmartEVSE MULTI setting to MASTER, the others to NODE 1-7. Make sure there is only one Master, and the Node numbers are unique.
+    - On the Master configure the following:
+      - MODE	  Set this to Smart if a Sensorbox (or configured kWh meter) is used to measure the current draw on the mains supply.
+      It will then dynamically vary the charge current for all connected EV’s.  If you are using a dedicated mains supply for the EV’s you can leave this set to Normal.
       - MAINS Set to the maximum current of the MAINS connection (per phase).
-      If the sensorbox or other MainsMeter device measures a higher current then this value on one of the phases, it will immediately reduce the current to the EVSE’s 
+      If the sensorbox or other MainsMeter device measures a higher current then this value on one of the phases, it will immediately reduce the current to the EVSE’s
       - CIRCUIT Set this to the maximum current of the EVSE circuit (per phase).
-      This will be split between the connected and charging EV’s. 
-      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
-      - MIN		 Set to the lowest allowable charging current for all connected EV’s. 
-    - On the Nodes configure the following: 
-      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase). 
+      This will be split between the connected and charging EV’s.
+      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase).
+      - MIN		 Set to the lowest allowable charging current for all connected EV’s.
+    - On the Nodes configure the following:
+      - MAX 		 Set the maximum charging current for the EV connected to -this- SmartEVSE (per phase).
 # Error Messages
-If an error occurs, the SmartEVSE will stop charging, and display one of the following messages: 
-* ERROR NO SERIAL COM	  CHECK WIRING<br>No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 11 seconds. Please check the wiring to the Sensorbox or other SmartEVSE. 
-* ERROR NO CURRENT<br>There is not enough current available to start charging, or charging was interrupted because there was not enough current available to keep charging. The SmartEVSE will try again in 60 seconds. 
-* ERROR	HIGH TEMP<br>The temperature inside the module has reached 65º Celsius. Charging is stopped.		
-Once the temperature has dropped below 55ºC charging is started again. 
+If an error occurs, the SmartEVSE will stop charging, and display one of the following messages:
+* ERROR NO SERIAL COM	  CHECK WIRING<br>No signal from the Sensorbox or other SmartEVSE (when load balancing is used) has been received for 11 seconds. Please check the wiring to the Sensorbox or other SmartEVSE.
+* ERROR NO CURRENT<br>There is not enough current available to start charging, or charging was interrupted because there was not enough current available to keep charging. The SmartEVSE will try again in 60 seconds.
+* ERROR	HIGH TEMP<br>The temperature inside the module has reached 65º Celsius. Charging is stopped.
+Once the temperature has dropped below 55ºC charging is started again.
 * RESIDUAL FAULT CURRENT DETECTED<br>An optional DC Residual Current Monitor has detected a fault current, the Contactor is switched off.
 The error condition can be reset by pressing any button on the SmartEVSE.
- 
+
+# Webserver
+After configuration of your Wifi parameters, your SmartEVSE will present itself on your LAN via a webserver. This webserver can be accessed through:
+* http://ip-address/
+* http://smartevse-xxxx.local/ where xxxx is the serial number of your SmartEVSE. It can be found on a sticker on the bottom of your SmartEVSE. It might be necessary that mDNS is configured on your LAN.
+* http://smartevse-yyyy.lan/ where yyyy is a derivative of the MAC addresss, that was shown to you when you configured your Wifi parameters.
+
+
 
 # Changes with regards to the original firmware
 * New Status page using the Rest API
@@ -237,10 +244,6 @@ The error condition can be reset by pressing any button on the SmartEVSE.
     - This means the bug mentioned above is solved ONLY for people having Sensorbox and/or kWh-meter enabled.
 
     - Charging in Normal mode has not changed, and charging in Smart and Solar mode has not changed if you have no Sensorbox and/or kWh-meter enabled.
-
-
-# New Status Page
-![image](https://user-images.githubusercontent.com/36994651/160653707-121dd618-ee0d-4cb3-bc39-82fde1a1a653.png)
 
 
 # Home Battery Integration
