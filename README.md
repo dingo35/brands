@@ -91,34 +91,40 @@ WIFI          Enable wifi connection to your LAN
               and configure your Wifi password
   <Enabled>   Connect to your LAN via Wifi.
 
-MAX TEMP      Maximum allowed temperature for your SmartEVSE; 40-75C, default 65. You can increase this if your SmartEVSE is in direct sunlight.
+MAX TEMP      Maximum allowed temperature for your SmartEVSE; 40-75C, default 65.
+              You can increase this if your SmartEVSE is in direct sunlight.
 
-SUMMAINS      Maximum allowed current summed over all phases: 10-600A; this is used for the EU Capacity rate limiting, currently only in Belgium
+SUMMAINS      Maximum allowed current summed over all phases: 10-600A
+              This is used for the EU Capacity rate limiting, currently only in Belgium
 
 MODEM         If a modem that can communicate with your EV is connected
   <Disabled>          No modem connected
-  <Experimental>      Only for expert use, if you have a modem connected AND compile the firmware with MODEM=1.
+  <Experimental>      Only for expert use, 
+                      if you have a modem connected AND compile the firmware with MODEM=1.
 
-The following options are only shown when Mode set to <Solar> and Multi set to <Disabled> or <Master>:
-* START         set the current on which the EV should start Solar charging: -0  -48A (sum of all phases)
-* STOP          Stop charging when there is not enough solar power available: Disabled 60 minutes (Disabled = never stop charging)
-* IMPORT        Allow additional grid power when solar charging: 0-20A (summed over all phases)
-* CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 phases of a three-phase Mains installation; this can be usefull if one wants to charge of off
-      Solar; EV's have a minimal charge current of 6A, so switching off 2 phases allows you to charge with a current of 6-18A, while 3 phases have a minimum current
-      of 3x6A=18A. This way you can still charge solar-only on smaller solar installations.
-
+The following options are only shown when Mode set to <Solar> and
+Multi set to <Disabled> or <Master>:
+START         set the current on which the EV should start Solar charging: 
+              -0  -48A (sum of all phases)
+STOP          Stop charging when there is not enough solar power available:
+              Disabled - 60 minutes (Disabled = never stop charging)
+IMPORT        Allow additional grid power when solar charging: 0-20A (summed over all phases)
+CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 phases of a
+              3 phase Mains installation; this can be usefull if one wants to charge of off
+              Solar; EV's have a minimal charge current of 6A, so switching off 2 phases
+              allows you to charge with a current of 6-18A, while 3 phases have a
+              minimum current of 3x6A=18A.
+              This way you can still charge solar-only on smaller solar installations.
   <Not present> No second contactor C2 is present (default)
   <Always Off>  C2 is always off, so you are single phase charging
   <Always On>   C2 is always on, so you are three phase charging (if your Mains are three phase and your EV supports it)
   <Solar Off>   C2 is always on except in Solar Mode where it is always off
   <Auto>        (not implemented yet, current behaviour is Always On)
-
+```
 
 
 # Changes in regards with the original firmware
 * New Status page using the Rest API
-* Disabled WebSockets
-* Reduced max backlight brightness
 * Home battery integration
 * Endpoint to send L1/2/3 data, this removed the need for a SensorBox
   * Note: Set MainsMeter to the new 'API' option in the config menu when sending L1/2/3
