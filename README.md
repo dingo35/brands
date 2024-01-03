@@ -14,8 +14,8 @@ MODE    (only appears when a MAINSMET is configured):
         also choose Smart Mode or Solar Mode:
   <Normal>	The EV will charge with the current set at MAX
   <Smart>	The EV will charge with a dynamic charge current, depending on MAINSMET
-                data, and MAINS, MAX, MIN settings.
-  <Solar>       The EV will charge on solar power.
+                data, and MAINS, MAX, MIN settings
+  <Solar>       The EV will charge on solar power
 
 CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
   <Socket>
@@ -23,76 +23,86 @@ CONFIG  Configure EVSE with Type 2 Socket or fixed cable:
 
 LOCK    (only appears when CONFIG is set to <Socket>)
         Enable or disable the locking actuator (config = socket)
-
-  <Disabled>			No lock is used```
-  <Solenoid>			Dostar, DUOSIDA DSIEC-ELB or Ratio lock```
-  <Motor>			     Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
+  <Disabled>    No lock is used
+  <Solenoid>	Dostar, DUOSIDA DSIEC-ELB or Ratio lock
+  <Motor>	Signal wire reversed, DUOSIDA DSIEC-EL or Phoenix Contact
 
 MULTI   (only appears when a MAINSMET is configured):
         2 to 8 EVSE’s can be connected via modbus, and their load will be balanced (Formerly known as LOADBALANCING):
-
   <Disabled>	Single SmartEVSE
   <Master>	Set the first SmartEVSE to Master,
   <Node1-7>	And the other SmartEVSE's to Node 1-7.
 
 MAINS	(only appears when a MAINSMET is configured):
     	Set Max Mains current: 10-200A (per phase)
-* MIN	        (only appears when a MAINSMET is configured):
-		Set MIN charge current for the EV: 6-16A (per phase)
-* MAX		Set MAX charge current for the EV: 10-80A (per phase)
-* CIRCUIT	(only appears when MULTI set to <Master>, or when MULTI set to <Disabled> and Mode is Smart or Solar):
-	        Set the max current the EVSE circuit can handle (load balancing): 10-200A
-                (see also subpanel wiring)
-* SWITCH        Set the function of an external switch connected to pin SW
-  - <Disabled>          A push button on io pin SW can be used to STOP charging.
-  - <Access B>          A momentary push Button is used to enable/disable access to the charging station.
-  - <Access S>          A toggle switch is used to enable/disable access to the charging station.
-  - <Sma-Sol B>         A momentary push Button is used to switch between Smart and Solar modes.
-  - <Sma-Sol S>         A toggle switch is used to switch between Smart and Solar modes.
-* RCMON         RCM14-03 Residual Current Monitor is plugged into connector P1.
-  - <Disabled>  The RCD option is not used.
-  - <Enabled>   When a fault current is detected, the contactor will be opened.
-* RFID          use a RFID card reader to enable/disable access to the EVSE.
+
+MIN     (only appears when a MAINSMET is configured):
+        Set MIN charge current for the EV: 6-16A (per phase)
+
+MAX	Set MAX charge current for the EV: 10-80A (per phase)
+
+CIRCUIT	(only appears when MULTI set to <Master>, or when MULTI set to <Disabled> and Mode is Smart or Solar):
+        Set the max current the EVSE circuit can handle (load balancing): 10-200A
+        (see also subpanel wiring)
+
+SWITCH  Set the function of an external switch connected to pin SW
+  <Disabled>    A push button on io pin SW can be used to STOP charging
+  <Access B>    A momentary push Button is used to enable/disable access to the charging station
+  <Access S>    A toggle switch is used to enable/disable access to the charging station
+  <Sma-Sol B>   A momentary push Button is used to switch between Smart and Solar modes
+  <Sma-Sol S>   A toggle switch is used to switch between Smart and Solar modes
+
+RCMON         RCM14-03 Residual Current Monitor is plugged into connector P1
+  <Disabled>    The RCD option is not used
+  <Enabled>     When a fault current is detected, the contactor will be opened
+
+RFID          use a RFID card reader to enable/disable access to the EVSE
                 A maximum of 20 RFID cards can be stored.
                 <Disabled> / <Enabled> / <Learn> / <Delete> / <Delete All>
-* MAINSMET      Set type of MAINS meter
-  - <Disabled>  No MAINS meter connected; only Normal mode possible, no MULTIple SmartEVSE's possible.
-  - <Sensorbox> the Sensorbox will send measurement data to the SmartEVSE.
-  - <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used.
-    Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
-  - If MAINSMET is not <Disabled>, this setting appears:
+
+MAINSMET      Set type of MAINS meter
+  <Disabled>    No MAINS meter connected; only Normal mode possible, no MULTIple SmartEVSE's possible
+  <Sensorbox>   the Sensorbox will send measurement data to the SmartEVSE
+  <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
+
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
+  If MAINSMET is not <Disabled>, this setting appears:
     * MAINSADR  Set the Modbus address for the kWh meter
-* EV METER      Set type of EV kWh meter (measures power and charged energy)
-  - <Disabled>  No EV meter connected.
-  - <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used.
-    Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
-  - If EV METER is not <Disabled>, this setting appears:
+
+EV METER      Set type of EV kWh meter (measures power and charged energy)
+  <Disabled>  No EV meter connected.
+  <Phoenix C> / <Finder> / <...> / <Custom> a Modbus kWh meter is used
+
+  Note that Eastron1P is for single phase Eastron meters, Eastron3P for Eastron three phase meters, and InvEastron is for Eastron three phase meter that is fed from below (inverted).
+  If EV METER is not <Disabled>, this setting appears:
     * EV ADR   Set the Modbus address for the EV Meter
 
-* WIFI          Enable wifi connection to your LAN
-  - <Disabled>  No wifi connection
-  - <SetupWifi> The SmartEVSE presents itself as a Wifi Acces Point "smartevse-xxxx"; connect with your phone to that access point, goto http://192.168.4.1/ and configure your Wifi password
-  - <Enabled>   Connect to your LAN via Wifi.
+WIFI          Enable wifi connection to your LAN
+  <Disabled>  No wifi connection
+  <SetupWifi> The SmartEVSE presents itself as a Wifi Acces Point "smartevse-xxxx"; connect with your phone to that access point, goto http://192.168.4.1/ and configure your Wifi password
+  <Enabled>   Connect to your LAN via Wifi.
 
-* MAX TEMP      Maximum allowed temperature for your SmartEVSE; 40-75C, default 65. You can increase this if your SmartEVSE is in direct sunlight.
-* SUMMAINS      Maximum allowed current summed over all phases: 10-600A; this is used for the EU Capacity rate limiting, currently only in Belgium
-* MODEM         If a modem that can communicate with your EV is connected
-  - <Disabled>          No modem connected
-  - <Experimental>      Only for expert use, if you have a modem connected AND compile the firmware with MODEM=1.
+MAX TEMP      Maximum allowed temperature for your SmartEVSE; 40-75C, default 65. You can increase this if your SmartEVSE is in direct sunlight.
+
+SUMMAINS      Maximum allowed current summed over all phases: 10-600A; this is used for the EU Capacity rate limiting, currently only in Belgium
+
+MODEM         If a modem that can communicate with your EV is connected
+  <Disabled>          No modem connected
+  <Experimental>      Only for expert use, if you have a modem connected AND compile the firmware with MODEM=1.
 
 The following options are only shown when Mode set to <Solar> and Multi set to <Disabled> or <Master>:
 * START         set the current on which the EV should start Solar charging: -0  -48A (sum of all phases)
-* STOP          Stop charging when there is not enough solar power available: Disabled - 60 minutes (Disabled = never stop charging)
+* STOP          Stop charging when there is not enough solar power available: Disabled 60 minutes (Disabled = never stop charging)
 * IMPORT        Allow additional grid power when solar charging: 0-20A (summed over all phases)
 * CONTACT2      One can add a second contactor (C2) that switches off 2 of the 3 phases of a three-phase Mains installation; this can be usefull if one wants to charge of off
       Solar; EV's have a minimal charge current of 6A, so switching off 2 phases allows you to charge with a current of 6-18A, while 3 phases have a minimum current
       of 3x6A=18A. This way you can still charge solar-only on smaller solar installations.
 
-    - <Not present> (default),
-    - <Always Off> (= 1 phase charging),
-    - <Always On> (= 3 phase charging),
-    - <Solar Off> (always on except in Solar Mode where it is always off),
-    - <Auto> (not implemented yet, current behaviour is Always On)
+  <Not present> No second contactor C2 is present (default)
+  <Always Off>  C2 is always off, so you are single phase charging
+  <Always On>   C2 is always on, so you are three phase charging (if your Mains are three phase and your EV supports it)
+  <Solar Off>   C2 is always on except in Solar Mode where it is always off
+  <Auto>        (not implemented yet, current behaviour is Always On)
 
 
 
