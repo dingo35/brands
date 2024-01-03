@@ -194,7 +194,7 @@ For more details see https://github.com/serkri/SmartEVSE-3/issues/215
 * If you don't understand this setting, or don't live in Belgium, leave this setting at its default value
 
 # Building the firmware
-* You can get the latest release off of https://github.com/dingo35/SmartEVSE-3.5/releases, but if you want to build it yourself:
+You can get the latest release off of https://github.com/dingo35/SmartEVSE-3.5/releases, but if you want to build it yourself:
 * Install platformio-core https://docs.platformio.org/en/latest/core/installation/methods/index.html
 * Clone this github project, cd to the smartevse directory where platformio.ini is located
 * Compile firmware.bin: platformio run

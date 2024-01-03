@@ -7,7 +7,7 @@ Feel free to use this repository to build it yourself or to use the latest on fr
 <br />
 <br />
 
-[Installation](docs/installation.md)<br>
+[Hardware installation](docs/installation.md)<br>
 [Configuration](docs/configuration.md)<br>
 [Operation](docs/operation.md)<br>
 
